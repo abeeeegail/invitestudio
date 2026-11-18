@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Invite Studio | Custom Digital Invitations</title>
+<meta name="description" content="Beautiful, customized digital invitations for weddings, birthdays, debuts, baby showers, dates and more. Delivered online, ready to share.">
+<meta name="theme-color" content="#F8F5EF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Invite Studio | Custom Digital Invitations">
+<meta property="og:description" content="Thoughtfully designed digital invitations for your special moments.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&family=Parisienne&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Apply saved/system theme before paint to avoid a flash
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+    document.documentElement.classList.add('js');
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="logo" href="#top">The Invite Studio</a>
+    <nav id="nav" aria-label="Main">
+      <a href="#collections">Collections</a>
+      <a href="#shop">Shop</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How It Works</a>
+      <a href="#order">Order</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode"></button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero-sec" id="top">
+    <div class="hero">
+      <div>
+        <span class="script">The Invite Studio</span>
+        <h1 id="heroTitle">Thoughtfully Designed Invitations for Your Special Moments.</h1>
+        <p id="heroIntro">Beautiful digital invitations, thoughtfully crafted to make every celebration unforgettable.</p>
+        <p class="hero-actions">
+          <a class="btn" href="#shop">Explore Our Collection</a>
+          <a class="btn o" href="#order">Order Now</a>
+        </p>
+        <ul class="trust">
+          <li>100% digital</li><li>Personalized details</li><li>Easy ordering</li>
+        </ul>
+      </div>
+      <div id="heroMedia"></div>
+    </div>
+    <noscript><p class="note" style="text-align:center">Please enable JavaScript to browse designs.</p></noscript>
+  </section>
+
+  <section class="alt reveal" id="collections">
+    <div class="wrap">
+      <h2>Featured Collections</h2>
+      <p class="sub">Choose an occasion to see its designs.</p>
+      <div class="grid" id="collGrid"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="featured">
+    <div class="wrap">
+      <h2>Featured Designs</h2>
+      <p class="sub">A few favorites to get you started.</p>
+      <div class="grid" id="featGrid"></div>
+    </div>
+  </section>
+
+  <section class="alt reveal" id="shop">
+    <div class="wrap">
+      <h2>Shop</h2>
+      <p class="sub">Browse every invitation and greeting design.</p>
+      <div class="search">
+        <label class="sr" for="q">Search designs</label>
+        <input id="q" type="search" placeholder="Search designs…" autocomplete="off">
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+      <div class="grid" id="shopGrid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="pricing">
+    <div class="wrap">
+      <h2>Pricing</h2>
+      <p class="sub">Choose Local if you are ordering from the Philippines, or International if you are ordering from outside the Philippines.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th scope="col">Category</th><th scope="col">Local (₱)</th><th scope="col">International ($)</th></tr></thead>
+          <tbody id="priceBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt reveal" id="why">
+    <div class="wrap">
+      <h2>Why Choose Us</h2>
+      <div class="two">
+        <div class="box"><h3>Beautiful templates</h3><p>Thoughtfully designed templates with a timeless look.</p></div>
+        <div class="box"><h3>Personalized details</h3><p>Every invitation is customized with your event details.</p></div>
+        <div class="box"><h3>Convenient digital delivery</h3><p>Receive your finished invitation online, ready to share.</p></div>
+        <div class="box"><h3>Elegant and easy to use</h3><p>Clean designs your guests will enjoy opening.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="how">
+    <div class="wrap">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li>Browse our collection.</li>
+        <li>Choose your favorite design.</li>
+        <li>Submit your event details and payment.</li>
+        <li>Receive your customized digital invitation.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt reveal" id="order">
+    <div class="wrap">
+      <h2>Order and Payment</h2>
+      <p class="sub">You are ordering a customized digital invitation, not a printed product. Orders are processed after payment verification, so delivery is not instant.</p>
+      <div class="two">
+        <div class="box">
+          <h3>1. Order form</h3>
+          <label class="field" for="ocat">Category</label>
+          <select id="ocat"></select>
+          <label class="field" for="odes">Design</label>
+          <select id="odes"></select>
+          <p class="note">Details we will ask for:</p>
+          <ul id="oflds"></ul>
+          <button class="btn" id="oform" type="button">Open Order Form</button>
+          <p class="note" id="ofn" role="status"></p>
+        </div>
+        <div class="box">
+          <h3>2. Payment</h3>
+          <p class="note">Send payment using the details below, then include your reference number in the order form. A payment screenshot upload is optional.</p>
+          <h4>Local (Philippines)</h4>
+          <div id="payLocal"></div>
+          <h4>International</h4>
+          <div id="payIntl"></div>
+        </div>
+      </div>
+      <div class="ok"><b>After you order</b><br>“Thank you for choosing The Invite Studio! Your order has been received. We will review your submitted details and verify your payment. Your customized invitation will be processed within the stated turnaround time. Please check your email for updates.”</div>
+    </div>
+  </section>
+
+  <section class="reveal" id="testimonialsSec" hidden>
+    <div class="wrap">
+      <h2>Testimonials</h2>
+      <div class="two" id="testi"></div>
+    </div>
+  </section>
+
+  <section class="reveal" id="faq">
+    <div class="wrap narrow">
+      <h2>Frequently Asked Questions</h2>
+      <details><summary>Is this a printed invitation?</summary><p>No. Every order is a customized digital invitation delivered online by email or link.</p></details>
+      <details><summary>How long does it take?</summary><p>Orders are processed after payment verification. Our usual turnaround is <span class="proc"></span>.</p></details>
+      <details><summary>Can I request changes?</summary><p>Yes. Minor revisions to names, dates, venues and wording are included.</p></details>
+      <details><summary>How do I pay?</summary><p>Local customers can pay via GCash, Maya or bank transfer. International customers can use the international option. Include your payment reference number in the order form.</p></details>
+      <details><summary>I can’t find my occasion.</summary><p>Choose “Other Celebrations” or contact us. We’ll gladly help you.</p></details>
+    </div>
+  </section>
+
+  <section class="alt reveal" id="about">
+    <div class="wrap narrow center">
+      <h2>About Us</h2>
+      <p>The Invite Studio is a boutique digital invitation studio focused on creating beautiful and memorable invitations.</p>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap foot">
+    <div>
+      <div class="logo">The Invite Studio</div>
+      <p>Email: <a id="fEmail" href="#"></a><br>
+      Phone: <a id="fPhone" href="#"></a><br>
+      Location: <span id="fLoc"></span></p>
+    </div>
+    <div><b>Explore</b><br><a href="#shop">Shop</a><br><a href="#pricing">Pricing</a><br><a href="#order">Order</a></div>
+    <div id="fSocial"><b>Follow</b></div>
+    <div>
+      <button class="linkish" type="button" data-legal="terms">Terms and Conditions</button><br>
+      <button class="linkish" type="button" data-legal="privacy">Privacy Policy</button>
+      <p>© <span id="yr"></span> The Invite Studio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="pd" aria-labelledby="pdName">
+  <button class="x" type="button" data-close aria-label="Close">✕</button>
+  <div class="dg">
+    <div>
+      <div id="pdMain"></div>
+      <div class="th" id="pdThumbs"></div>
+    </div>
+    <div>
+      <h2 id="pdName"></h2>
+      <p id="pdDesc"></p>
+      <div class="pr big" id="pdPrices"></div>
+      <h3>What’s included</h3>
+      <ul>
+        <li>Customized digital invitation using the details you submit</li>
+        <li>Digital delivery by email or link</li>
+        <li>Minor revisions</li>
+      </ul>
+      <p class="note">Customization: we personalize names, dates, venues and wording. Processing time: <span class="proc"></span> after payment verification.</p>
+      <p class="note">You are purchasing a customized digital invitation or greeting designed with the details you submit. This is not a physical printed product.</p>
+      <p class="actions">
+        <a class="btn o" id="pdSample" href="#" target="_blank" rel="noopener" hidden>View Live Sample</a>
+        <button class="btn" id="pdOrder" type="button">Order Now</button>
+      </p>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="legal" aria-labelledby="legalTitle">
+  <button class="x" type="button" data-close aria-label="Close">✕</button>
+  <h2 id="legalTitle"></h2>
+  <div id="legalBody"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
